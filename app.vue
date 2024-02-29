@@ -1,7 +1,6 @@
 <template>
   <div>
-    <TopNav/>
+    <SideBar/>
     <NuxtPage/>
-    <Footer/>
   </div>
 </template>
