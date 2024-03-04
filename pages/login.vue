@@ -16,10 +16,12 @@ const SendLogin = async () => {
   //timespan to simulate waiting for api response
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  const response = await $fetch("http://localhost:8000/login", {
+  const response = await $fetch("/api/login", {
     method: "GET",
   });
   if (response.token === loginToBase64()) {
+    sessionStorage.setItem("AUTH_KEY", response.token);
+    await navigateTo("/");
     error.value = false;
   } else {
     error.value = true;
