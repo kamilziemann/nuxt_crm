@@ -1,4 +1,5 @@
 <script setup>
+import { SESSION_STORAGE_AUTH_KEY } from "~/utils/keys.ts";
 const login = ref("");
 const password = ref("");
 const loading = ref(false);
@@ -10,7 +11,7 @@ const loginToBase64 = () => {
   return btoa(binString);
 };
 
-const SendLogin = async () => {
+const handleSubmit = async () => {
   loading.value = true;
 
   //timespan to simulate waiting for api response
@@ -20,7 +21,7 @@ const SendLogin = async () => {
     method: "GET",
   });
   if (response.token === loginToBase64()) {
-    sessionStorage.setItem("AUTH_KEY", response.token);
+    sessionStorage.setItem(SESSION_STORAGE_AUTH_KEY, response.token);
     await navigateTo("/");
     error.value = false;
   } else {
@@ -31,7 +32,10 @@ const SendLogin = async () => {
 };
 </script>
 <template>
-  <div class="flex justify-center items-center h-screen">
+  <form
+    @submit.prevent="handleSubmit"
+    class="flex justify-center items-center h-screen"
+  >
     <div class="flex flex-col items-center justify-center gap-5 w-1/4 min-w-64">
       <label class="input input-bordered flex items-center gap-2 w-full">
         <svg
@@ -73,7 +77,7 @@ const SendLogin = async () => {
           placeholder="●●●●●●"
         />
       </label>
-      <button class="btn btn-outline btn-success w-full" @click="SendLogin">
+      <button class="btn btn-outline btn-success w-full">
         <span
           v-if="loading"
           class="loading loading-spinner text-success"
@@ -82,6 +86,6 @@ const SendLogin = async () => {
       </button>
       <p v-if="error" class="text-error">Incorrect login or password</p>
     </div>
-  </div>
+  </form>
 </template>
 <style scoped></style>
