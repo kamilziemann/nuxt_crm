@@ -2,8 +2,7 @@
 
 </script>
 <template>
- <h3><span>index</span></h3>
- <button class="btn">Button</button>
+        <SummariesHeader/>     
 </template>
 <style scoped lang="scss">
 h3 {
