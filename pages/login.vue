@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  layout: "login",
+});
 import { SESSION_STORAGE_AUTH_KEY } from "~/utils/keys.ts";
 const login = ref("");
 const password = ref("");
