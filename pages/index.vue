@@ -1,4 +1,5 @@
 <script setup>
+import SummariesHeader from '../components/Header/SummariesHeader.vue'
 
 </script>
 <template>
