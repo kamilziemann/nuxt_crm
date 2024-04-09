@@ -1,6 +1,5 @@
 <template>
-  <div class="flex">
-    <SideBar />
+  <div>
     <NuxtPage />
   </div>
 </template>
