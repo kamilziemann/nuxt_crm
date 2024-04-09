@@ -1,40 +1,28 @@
 <template>
   <div class="stat p-4">
     <div
-        :class="`stat-figure flex items-center justify-center rounded-full bg-gradient-to-br ${colorFromTo} ${width} ${height} hidden ${breakpoint}`">
-        <component :is="SvgComponent" />
+      :class="`stat-figure flex items-center justify-center rounded-full bg-gradient-to-br ${colorFromTo} ${width} ${height} ${isHidden ? 'hidden' : ''}`">
+      <component :is="SvgComponent" />
     </div>
-
     <div :class="`stat-title ${titleColor}`">{{ title }}</div>
     <div :class="`stat-value text-3xl ${valueColor}`">{{ value }}</div>
-    <div :class="`stat-desc ${descColor}`">{{ description }}</div>
+    <div :class="`stat-desc ${descColor} ${isDescHidden ? 'hidden' : ''}`">{{ description }}</div>
   </div>
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
-import { defineAsyncComponent } from 'vue';
 
 const props = defineProps({
-  title: {
-    type: String,
-    default: 'title="type title here"'
-  },
-  value: {
-    type: Number,
-    default: 0
-  },
-  description: {
-    type: String,
-    default: 'description="type description here"'
-  },
+  title: String,
+  value: Number,
+  description: String,
   colorFromTo: {
     type: String,
     default: 'from-purple-300 to-purple-200'
   },
   svg: {
     type: String,
-    default: 'ShoppingBasket'  
+    default: 'ShoppingBasket'
   },
   width: {
     type: String,
@@ -46,23 +34,43 @@ const props = defineProps({
   },
   titleColor: {
     type: String,
-    default: 'stat-title' 
+    default: 'text-gray-700'
   },
   valueColor: {
     type: String,
-    default: 'stat-value text-primary text-3xl"' 
+    default: 'text-primary text-3xl'
   },
   descColor: {
     type: String,
-    default: 'stat-desc'
+    default: 'text-gray-500'
   },
-  breakpoint: {
-    type: String,
-    default: 'md:flex' // sm-640px, md-768px, lg-1024px, xl-1280px, 2xl-1536px
+  hideAtWidth: {
+    type: Number,
+    default: 839
+  },
+  hideDescAtWidth: {
+    type: Number,
+    default: 610
   }
 });
 
-const SvgComponent = computed(() => {
-  return defineAsyncComponent(() => import(`../Svg/${props.svg}.vue`));
+const isHidden = ref(false);
+const isDescHidden = ref(false);
+
+const updateVisibility = () => {
+  isHidden.value = window.innerWidth <= props.hideAtWidth;
+  isDescHidden.value = window.innerWidth <= props.hideDescAtWidth;
+};
+
+watchEffect(() => {
+  if (typeof window !== 'undefined') {
+    updateVisibility();
+    window.addEventListener('resize', updateVisibility);
+    onUnmounted(() => {
+      window.removeEventListener('resize', updateVisibility);
+    });
+  }
 });
+
+const SvgComponent = computed(() => defineAsyncComponent(() => import(`../Svg/${props.svg}.vue`)));
 </script>

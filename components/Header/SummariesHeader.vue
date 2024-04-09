@@ -38,15 +38,15 @@ onMounted(() => {
   
     <!-- Products StatCard -->
     <StatCard title="Products" :value="products" description="12% this month" colorFromTo="from-purple-300 to-purple-200"
-      svg="ShoppingBasket" breakpoint="sm:flex"/>
+      svg="ShoppingBasket"/>
 
     <!-- Orders StatCard -->
     <StatCard title="Orders" :value="orders" description="21% this month" colorFromTo="from-pink-300 to-pink-200"
-      svg="Truck" valueColor="text-pink-400" breakpoint="sm:flex" />
+      svg="Truck" valueColor="text-pink-400"/>
 
     <!-- Users StatCard -->
     <StatCard title="Users" :value="customers" description="8% this month" colorFromTo="from-green-300 to-green-200"
-      svg="User" valueColor="text-green-400" breakpoint="sm:flex" />
+      svg="User" valueColor="text-green-400" />
       
   </StatsContainer>
 </template>

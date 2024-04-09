@@ -14,10 +14,6 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    marginTop: {
-        type: String,
-        default: 'mt-10',
-    },
     shadow: {
         type: Boolean,
         default: true,
@@ -28,7 +24,7 @@ const props = defineProps({
     },
     breakpoint: {
         type: Number, // Width at which the container switches to vertical layout
-        default: 354,
+        default: 495,
     }
 });
 
