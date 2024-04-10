@@ -1,8 +1,15 @@
-<script setup></script>
+<script setup>
+import SummariesHeader from '../components/Header/SummariesHeader.vue'
+</script>
+
 <template>
-  <h3><span>index</span></h3>
-  <button class="btn">Button</button>
+  <div class="flex justify-center mt-10 w-full">
+    <div>
+      <SummariesHeader />
+    </div>
+  </div>
 </template>
+
 <style scoped lang="scss">
 h3 {
   span {

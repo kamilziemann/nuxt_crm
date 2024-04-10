@@ -25,7 +25,7 @@ export default {
 };
 </script>
 <template>
-  <div class="h-screen w-[300px] flex flex-col items-center bg-white">
+  <div class="h-screen w-[300px] flex flex-col items-center bg-white mr-5">
     <h1 class="text-[26px] text-[#333] p-[20px]">Dashboard</h1>
     <div class="mt-[30px]">
       <NuxtLink to="/home">
