@@ -1,4 +1,8 @@
 <script>
+import ToggleMode from "./ToggleMode.vue";
+import FontSizer from "./FontSizer.vue";
+import DarkModeIcon from "../../assets/svg/DarkModeIcon.vue";
+import LightModeIcon from "../../assets/svg/LightModeIcon.vue";
 import DashboardIcon from "../../assets/svg/DashboardIcon.vue";
 import ProductIcon from "../../assets/svg/ProductIcon.vue";
 import CustomersIcon from "../../assets/svg/CustomersIcon.vue";
@@ -7,6 +11,10 @@ import PromoteIcon from "../../assets/svg/PromoteIcon.vue";
 import HelpIcon from "../../assets/svg/HelpIcon.vue";
 export default {
   components: {
+    FontSizer,
+    DarkModeIcon,
+    ToggleMode,
+    LightModeIcon,
     DashboardIcon,
     ProductIcon,
     CustomersIcon,
@@ -64,6 +72,12 @@ export default {
           <p :class="$style.text">Help</p>
         </div>
       </NuxtLink>
+    </div>
+    <div class="h-screen w-[300px] flex flex-row">
+      <DarkModeIcon />
+      <ToggleMode />
+      <LightModeIcon />
+      <FontSizer />
     </div>
   </div>
 </template>
