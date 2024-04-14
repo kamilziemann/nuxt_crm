@@ -56,11 +56,11 @@ const ToggleDark = useToggle(isDark);
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: green;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px green;
 }
 
 input:checked + .slider:before {

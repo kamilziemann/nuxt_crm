@@ -1,13 +1,16 @@
 <template>
-  <label class="FontSizer">
-    <input type="checkbox" @click="toggleFontSize($event)" />
-  </label>
-  <p>kutas</p>
+  <div class="container">
+    <label class="labelBox">
+      <input type="checkbox" value="1" @click="toggleFontSizes($event)" /><span
+        >Aa</span
+      >
+    </label>
+  </div>
 </template>
 <script>
 export default {
   methods: {
-    toggleFontSize(event) {
+    toggleFontSizes() {
       if (event.target.checked) {
         this.increaseFontSize(); // If switch is checked, increase font size
       } else {
@@ -16,72 +19,100 @@ export default {
     },
     increaseFontSize() {
       // Increase font size
-      document.querySelector("body").style.fontSize = "30px";
+      const elements = document.querySelectorAll("*");
+      elements.forEach((element) => {
+        const computedStyle = window.getComputedStyle(element);
+        const currentFontSize = parseInt(computedStyle.fontSize);
+        console.log(element, currentFontSize);
+        if (!isNaN(currentFontSize)) {
+          // Multiply current font size by 2
+          const newFontSize = currentFontSize * 1.15 + "px";
+          console.log(newFontSize);
+          element.style.fontSize = newFontSize;
+        }
+      });
     },
     resetFontSize() {
-      // Reset font size to default (16px)
-      document.querySelector("body").style.fontSize = "16px";
+      // Reset font size to default
+      const elements = document.querySelectorAll("*");
+      elements.forEach((element) => {
+        const computedStyle = window.getComputedStyle(element);
+        const currentFontSize = parseInt(computedStyle.fontSize);
+        if (!isNaN(currentFontSize)) {
+          // Multiply current font size by 2
+          const newFontSize = currentFontSize / 1.15 + "px";
+          element.style.fontSize = newFontSize;
+        }
+      });
     },
   },
+  // methods: {
+  //   toggleFontSize(event) {
+  //     if (event.target.checked) {
+  //       this.increaseFontSize(); // If switch is checked, increase font size
+  //     } else {
+  //       this.resetFontSize(); // If switch is unchecked, reset font size
+  //     }
+  //   },
+  //   increaseFontSize() {
+  //     // Increase font size
+  //     document.querySelector("body").style.fontSize = "30px";
+  //   },
+  //   resetFontSize() {
+  //     // Reset font size to default (16px)
+  //     document.querySelector("body").style.fontSize = "16px";
+  //   },
+  // },
 };
 </script>
 <style>
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+body {
+  font-family: sans-serif;
+  margin: 0 auto;
+  text-align: center;
 }
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.container {
+  width: 40px;
 }
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+.labelBox {
   background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  color: black;
+  border-radius: 12px;
+  overflow: hidden;
+  float: left;
 }
 
-input:checked + .slider {
-  background-color: #2196f3;
+.container label {
+  float: left;
+  line-height: 12px;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+.container label span {
+  text-align: center;
+  display: block;
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+.container label input {
+  position: absolute;
+  display: none;
+}
+.container label input + span {
+  color: black;
+  padding: 15px 20px;
+  transition-duration: 500ms;
 }
 
-.slider.round {
-  border-radius: 34px;
+.container input:checked + span {
+  color: #ffffff;
 }
 
-.slider.round:before {
-  border-radius: 50%;
+.container input:checked + span {
+  background-color: green;
+}
+
+.container input:hover + span {
+  background-color: rgb(0, 230, 0);
+  color: white;
+  transition-duration: 500ms;
 }
 </style>

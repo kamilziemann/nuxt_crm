@@ -33,50 +33,56 @@ export default {
 };
 </script>
 <template>
-  <div class="h-screen w-[300px] flex flex-col items-center bg-white mr-5">
-    <h1 class="text-[26px] text-[#333] p-[20px]">Dashboard</h1>
-    <div class="mt-[30px]">
-      <NuxtLink to="/home">
-        <div :class="$style.link" class="group duration-500">
-          <DashboardIcon />
-          <p :class="$style.text">Dashboard</p>
-        </div>
-      </NuxtLink>
-      <NuxtLink to="/product">
-        <div :class="$style.link" class="group duration-500">
-          <ProductIcon />
-          <p :class="$style.text">Product</p>
-        </div>
-      </NuxtLink>
-      <NuxtLink to="/customers">
-        <div :class="$style.link" class="group duration-500">
-          <CustomersIcon />
-          <p :class="$style.text">Customers</p>
-        </div>
-      </NuxtLink>
-      <NuxtLink to="/income">
-        <div :class="$style.link" class="group duration-500">
-          <IncomeIcon />
-          <p :class="$style.text">Income</p>
-        </div>
-      </NuxtLink>
-      <NuxtLink to="/promote">
-        <div :class="$style.link" class="group duration-500">
-          <PromoteIcon />
-          <p :class="$style.text">Promote</p>
-        </div>
-      </NuxtLink>
-      <NuxtLink to="/help">
-        <div :class="$style.link" class="group duration-500">
-          <HelpIcon />
-          <p :class="$style.text">Help</p>
-        </div>
-      </NuxtLink>
+  <div
+    class="h-screen w-[300px] flex flex-col items-center bg-white mr-5 justify-between"
+  >
+    <div class="flex flex-col items-center">
+      <h1 class="text-[26px] text-[#333] p-[20px]">Dashboard</h1>
+      <div class="mt-[30px]">
+        <NuxtLink to="/home">
+          <div :class="$style.link" class="group duration-500">
+            <DashboardIcon />
+            <p :class="$style.text">Dashboard</p>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/product">
+          <div :class="$style.link" class="group duration-500">
+            <ProductIcon />
+            <p :class="$style.text">Product</p>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/customers">
+          <div :class="$style.link" class="group duration-500">
+            <CustomersIcon />
+            <p :class="$style.text">Customers</p>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/income">
+          <div :class="$style.link" class="group duration-500">
+            <IncomeIcon />
+            <p :class="$style.text">Income</p>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/promote">
+          <div :class="$style.link" class="group duration-500">
+            <PromoteIcon />
+            <p :class="$style.text">Promote</p>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/help">
+          <div :class="$style.link" class="group duration-500">
+            <HelpIcon />
+            <p :class="$style.text">Help</p>
+          </div>
+        </NuxtLink>
+      </div>
     </div>
-    <div class="h-screen w-[300px] flex flex-row">
-      <DarkModeIcon />
-      <ToggleMode />
-      <LightModeIcon />
+    <div class="flex items-center w-full justify-evenly mb-5">
+      <div class="flex">
+        <DarkModeIcon />
+        <ToggleMode />
+        <LightModeIcon />
+      </div>
       <FontSizer />
     </div>
   </div>
