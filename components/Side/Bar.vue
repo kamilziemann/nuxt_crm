@@ -25,8 +25,8 @@ export default {
   computed: {
     $style() {
       return {
-        link: "flex w-[250px] h-[50px] items-center rounded-[8px] hover:bg-base hover:text-white mt-[10px]",
-        text: "ml-[14px] text-[#333] group-hover:text-[#fff]",
+        link: "flex w-[250px] h-[50px] items-center rounded-[8px] hover:bg-base hover:text-white mt-[10px] dark:bg-gray-800",
+        text: "ml-[14px] text-[#333] group-hover:text-[#fff] dark:text-white",
       };
     },
   },
@@ -34,7 +34,7 @@ export default {
 </script>
 <template>
   <div
-    class="h-screen w-[300px] flex flex-col items-center bg-white mr-5 justify-between"
+    class="h-screen w-[300px] flex flex-col items-center bg-white mr-5 justify-between dark:bg-black"
   >
     <div class="flex flex-col items-center">
       <h1 class="text-[26px] text-[#333] p-[20px]">Dashboard</h1>

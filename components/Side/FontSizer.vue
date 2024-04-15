@@ -7,10 +7,16 @@
     </label>
   </div>
 </template>
+
 <script>
 export default {
+  data() {
+    return {
+      originalFontSize: null, // Store the original font size
+    };
+  },
   methods: {
-    toggleFontSizes() {
+    toggleFontSizes(event) {
       if (event.target.checked) {
         this.increaseFontSize(); // If switch is checked, increase font size
       } else {
@@ -23,46 +29,26 @@ export default {
       elements.forEach((element) => {
         const computedStyle = window.getComputedStyle(element);
         const currentFontSize = parseInt(computedStyle.fontSize);
-        console.log(element, currentFontSize);
         if (!isNaN(currentFontSize)) {
-          // Multiply current font size by 2
+          // Multiply current font size by 1.15
           const newFontSize = currentFontSize * 1.15 + "px";
-          console.log(newFontSize);
           element.style.fontSize = newFontSize;
         }
       });
     },
     resetFontSize() {
-      // Reset font size to default
+      // Reset font size to original
+      if (this.originalFontSize === null) {
+        // If originalFontSize is not yet set, find and store it
+        const bodyComputedStyle = window.getComputedStyle(document.body);
+        this.originalFontSize = parseInt(bodyComputedStyle.fontSize);
+      }
       const elements = document.querySelectorAll("*");
       elements.forEach((element) => {
-        const computedStyle = window.getComputedStyle(element);
-        const currentFontSize = parseInt(computedStyle.fontSize);
-        if (!isNaN(currentFontSize)) {
-          // Multiply current font size by 2
-          const newFontSize = currentFontSize / 1.15 + "px";
-          element.style.fontSize = newFontSize;
-        }
+        element.style.fontSize = this.originalFontSize + "px"; // Reset to original font size
       });
     },
   },
-  // methods: {
-  //   toggleFontSize(event) {
-  //     if (event.target.checked) {
-  //       this.increaseFontSize(); // If switch is checked, increase font size
-  //     } else {
-  //       this.resetFontSize(); // If switch is unchecked, reset font size
-  //     }
-  //   },
-  //   increaseFontSize() {
-  //     // Increase font size
-  //     document.querySelector("body").style.fontSize = "30px";
-  //   },
-  //   resetFontSize() {
-  //     // Reset font size to default (16px)
-  //     document.querySelector("body").style.fontSize = "16px";
-  //   },
-  // },
 };
 </script>
 <style>
