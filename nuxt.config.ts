@@ -2,12 +2,12 @@
 import { resolve } from "path";
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode"],
+  colorMode: {
+    preference: "system", // default theme
+    dataValue: "theme", // activate data-theme in <html> tag
+    classSuffix: "",
   },
-  alias: {"@": resolve(__dirname, '/')},
-  css: ["~/assets/main.scss"]
-})
+  alias: { "@": resolve(__dirname, "/") },
+  css: ["~/assets/main.scss"],
+});

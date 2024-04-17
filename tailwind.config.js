@@ -9,11 +9,8 @@ export default {
     "./error.vue",
   ],
   theme: {
-    extend: {
-      colors: {
-        base: "green",
-      },
-    },
+    extend: {},
+    //darkMode: 'class' >> this is mistake
   },
   plugins: [require("daisyui")],
 };

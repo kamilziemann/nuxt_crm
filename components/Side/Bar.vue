@@ -1,6 +1,6 @@
 <script>
-import ToggleMode from "./ToggleMode.vue";
 import FontSizer from "./FontSizer.vue";
+import ToggleMode from "./ToggleMode.vue";
 import DarkModeIcon from "../../assets/svg/DarkModeIcon.vue";
 import LightModeIcon from "../../assets/svg/LightModeIcon.vue";
 import DashboardIcon from "../../assets/svg/DashboardIcon.vue";
@@ -9,11 +9,11 @@ import CustomersIcon from "../../assets/svg/CustomersIcon.vue";
 import IncomeIcon from "../../assets/svg/IncomeIcon.vue";
 import PromoteIcon from "../../assets/svg/PromoteIcon.vue";
 import HelpIcon from "../../assets/svg/HelpIcon.vue";
+
 export default {
   components: {
     FontSizer,
     DarkModeIcon,
-    ToggleMode,
     LightModeIcon,
     DashboardIcon,
     ProductIcon,
@@ -21,12 +21,13 @@ export default {
     IncomeIcon,
     PromoteIcon,
     HelpIcon,
+    ToggleMode,
   },
   computed: {
     $style() {
       return {
-        link: "flex w-[250px] h-[50px] items-center rounded-[8px] hover:bg-base hover:text-white mt-[10px] dark:bg-gray-800",
-        text: "ml-[14px] text-[#333] group-hover:text-[#fff] dark:text-white",
+        link: "btn flex w-[250px] h-[50px] items-center rounded-[8px] mt-[10px]",
+        text: "ml-[14px]",
       };
     },
   },
@@ -34,10 +35,10 @@ export default {
 </script>
 <template>
   <div
-    class="h-screen w-[300px] flex flex-col items-center bg-white mr-5 justify-between dark:bg-black"
+    class="h-screen w-[300px] flex flex-col bg-success items-center mr-5 justify-between"
   >
     <div class="flex flex-col items-center">
-      <h1 class="text-[26px] text-[#333] p-[20px]">Dashboard</h1>
+      <h1 class="text-[26px] p-[20px]">Dashboard</h1>
       <div class="mt-[30px]">
         <NuxtLink to="/home">
           <div :class="$style.link" class="group duration-500">
@@ -78,11 +79,7 @@ export default {
       </div>
     </div>
     <div class="flex items-center w-full justify-evenly mb-5">
-      <div class="flex">
-        <DarkModeIcon />
-        <ToggleMode />
-        <LightModeIcon />
-      </div>
+      <ToggleMode />
       <FontSizer />
     </div>
   </div>

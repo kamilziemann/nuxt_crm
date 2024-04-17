@@ -1,87 +1,56 @@
-<template>
-  <body mode="isDark ? 'dark' : 'light'">
-    <label class="switch">
-      <input type="checkbox" @click="ToggleDark()" />
-      <span class="slider round"></span>
-    </label>
-  </body>
-</template>
 <script setup>
-import { useDark, useToggle } from "@vueuse/core";
+import { ref } from "vue";
 
-const isDark = useDark({
-  selector: "body",
-  attribute: "mode",
-  valueDark: "dark",
-  valueLight: "light",
-});
-const ToggleDark = useToggle(isDark);
+const colorMode = useColorMode();
+const toggleChecked = ref(false);
+
+// Function to toggle the select dropdown
+const toggleSelect = () => {
+  colorMode.preference = toggleChecked.value ? "dark" : "light";
+};
 </script>
-<style>
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: green;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px green;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-[mode="dark"] {
-  background-color: rgb(57, 57, 57);
-  color: rgb(228, 228, 228);
-}
-[mode="light"] {
-  background-color: rgb(228, 228, 228);
-  color: rgb(57, 57, 57);
+<style lang="postcss">
+body {
+  @apply min-h-screen bg-white dark:bg-gray-800 dark:text-gray-200;
 }
 </style>
+<template>
+  <label class="flex cursor-pointer gap-2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="5" />
+      <path
+        d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"
+      />
+    </svg>
+    <input
+      type="checkbox"
+      value="synthwave"
+      class="toggle theme-controller"
+      v-model="toggleChecked"
+      @change="toggleSelect"
+    />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </label>
+</template>
