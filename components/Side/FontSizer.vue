@@ -1,52 +1,26 @@
 <template>
   <div class="container">
     <label class="labelBox">
-      <input type="checkbox" value="1" @click="toggleFontSizes($event)" /><span
-        >Aa</span
-      >
+      <input
+        type="checkbox"
+        value="1"
+        class="btn flex"
+        @click="toggleFontSizes($event)"
+      /><span>Aa</span>
     </label>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      originalFontSize: null, // Store the original font size
-    };
-  },
   methods: {
     toggleFontSizes(event) {
+      const rootElement = document.documentElement;
       if (event.target.checked) {
-        this.increaseFontSize(); // If switch is checked, increase font size
+        rootElement.classList.add("large-font");
       } else {
-        this.resetFontSize(); // If switch is unchecked, reset font size
+        rootElement.classList.remove("large-font");
       }
-    },
-    increaseFontSize() {
-      // Increase font size
-      const elements = document.querySelectorAll("*");
-      elements.forEach((element) => {
-        const computedStyle = window.getComputedStyle(element);
-        const currentFontSize = parseInt(computedStyle.fontSize);
-        if (!isNaN(currentFontSize)) {
-          // Multiply current font size by 1.15
-          const newFontSize = currentFontSize * 1.15 + "px";
-          element.style.fontSize = newFontSize;
-        }
-      });
-    },
-    resetFontSize() {
-      // Reset font size to original
-      if (this.originalFontSize === null) {
-        // If originalFontSize is not yet set, find and store it
-        const bodyComputedStyle = window.getComputedStyle(document.body);
-        this.originalFontSize = parseInt(bodyComputedStyle.fontSize);
-      }
-      const elements = document.querySelectorAll("*");
-      elements.forEach((element) => {
-        element.style.fontSize = this.originalFontSize + "px"; // Reset to original font size
-      });
     },
   },
 };
@@ -61,8 +35,8 @@ body {
   width: 40px;
 }
 .labelBox {
-  background-color: white;
-  color: black;
+  background-color: oklch(var(--b1));
+  color: klch(var(--bc));
   border-radius: 12px;
   overflow: hidden;
   float: left;
@@ -83,22 +57,23 @@ body {
   display: none;
 }
 .container label input + span {
-  color: black;
+  color: klch(var(--bc));
   padding: 15px 20px;
   transition-duration: 500ms;
 }
 
 .container input:checked + span {
-  color: #ffffff;
-}
-
-.container input:checked + span {
-  background-color: green;
+  color: klch(var(--bc));
+  background-color: oklch(var(--b1));
 }
 
 .container input:hover + span {
-  background-color: rgb(0, 230, 0);
-  color: white;
+  background-color: oklch(var(--b1));
+  color: klch(var(--bc));
   transition-duration: 500ms;
+}
+
+.large-font {
+  font-size: 1.3em;
 }
 </style>

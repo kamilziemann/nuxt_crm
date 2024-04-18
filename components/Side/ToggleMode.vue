@@ -11,7 +11,7 @@ const toggleSelect = () => {
 </script>
 <style lang="postcss">
 body {
-  @apply min-h-screen bg-white dark:bg-gray-800 dark:text-gray-200;
+  @apply min-h-screen;
 }
 </style>
 <template>

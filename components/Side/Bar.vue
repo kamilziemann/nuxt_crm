@@ -1,8 +1,6 @@
 <script>
 import FontSizer from "./FontSizer.vue";
 import ToggleMode from "./ToggleMode.vue";
-import DarkModeIcon from "../../assets/svg/DarkModeIcon.vue";
-import LightModeIcon from "../../assets/svg/LightModeIcon.vue";
 import DashboardIcon from "../../assets/svg/DashboardIcon.vue";
 import ProductIcon from "../../assets/svg/ProductIcon.vue";
 import CustomersIcon from "../../assets/svg/CustomersIcon.vue";
@@ -13,8 +11,6 @@ import HelpIcon from "../../assets/svg/HelpIcon.vue";
 export default {
   components: {
     FontSizer,
-    DarkModeIcon,
-    LightModeIcon,
     DashboardIcon,
     ProductIcon,
     CustomersIcon,
@@ -26,7 +22,7 @@ export default {
   computed: {
     $style() {
       return {
-        link: "btn flex w-[250px] h-[50px] items-center rounded-[8px] mt-[10px]",
+        link: "btn flex w-[250px] h-[50px] items-center rounded-[8px] mt-[10px] bg-base-100",
         text: "ml-[14px]",
       };
     },
@@ -35,7 +31,7 @@ export default {
 </script>
 <template>
   <div
-    class="h-screen w-[300px] flex flex-col bg-success items-center mr-5 justify-between"
+    class="h-screen w-[300px] flex flex-col items-center mr-5 justify-between bg-base-300"
   >
     <div class="flex flex-col items-center">
       <h1 class="text-[26px] p-[20px]">Dashboard</h1>
