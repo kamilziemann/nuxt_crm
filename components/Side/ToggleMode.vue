@@ -1,6 +1,4 @@
 <script setup>
-import { ref, onMounted } from "vue";
-
 const colorMode = useColorMode();
 const toggleChecked = ref(false);
 
@@ -12,11 +10,6 @@ onMounted(() => {
   toggleChecked.value = colorMode.preference === "dark";
 });
 </script>
-<style lang="postcss">
-body {
-  @apply min-h-screen;
-}
-</style>
 <template>
   <label class="flex cursor-pointer gap-2">
     <svg
