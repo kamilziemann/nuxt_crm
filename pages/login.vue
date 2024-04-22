@@ -30,6 +30,10 @@ const handleSubmit = async () => {
 
   loading.value = false;
 };
+
+definePageMeta({
+  layout: "login",
+});
 </script>
 <template>
   <form
