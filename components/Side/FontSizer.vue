@@ -1,21 +1,33 @@
 <template>
-  <div class="container">
-    <label class="labelBox">
+  <div class="width-[40px] leading-3 content-center">
+    <label
+      :class="{
+        'bg-green-500 text-green-800 hover:bg-base-100': isChecked,
+        'bg-base-100': !isChecked,
+      }"
+      class="text-bg-base-content rounded-xl overflow-hidden float-left hover:bg-green-500 hover:text-green-800 duration-500 px-7 py-2"
+    >
       <input
         type="checkbox"
         value="1"
-        class="btn flex"
+        class="sr-only"
         @click="toggleFontSizes($event)"
-      /><span>Aa</span>
+      /><span class="text-center flex">Aa</span>
     </label>
   </div>
 </template>
 
-<script>
+<script setup()>
 export default {
+  data() {
+    return {
+      isChecked: false,
+    };
+  },
   methods: {
     toggleFontSizes(event) {
       const rootElement = document.documentElement;
+      this.isChecked = event.target.checked;
       if (event.target.checked) {
         rootElement.classList.add("large-font");
       } else {
@@ -26,53 +38,6 @@ export default {
 };
 </script>
 <style>
-body {
-  font-family: sans-serif;
-  margin: 0 auto;
-  text-align: center;
-}
-.container {
-  width: 40px;
-}
-.labelBox {
-  background-color: oklch(var(--b1));
-  color: klch(var(--bc));
-  border-radius: 12px;
-  overflow: hidden;
-  float: left;
-}
-
-.container label {
-  float: left;
-  line-height: 12px;
-}
-
-.container label span {
-  text-align: center;
-  display: block;
-}
-
-.container label input {
-  position: absolute;
-  display: none;
-}
-.container label input + span {
-  color: klch(var(--bc));
-  padding: 15px 20px;
-  transition-duration: 500ms;
-}
-
-.container input:checked + span {
-  color: klch(var(--bc));
-  background-color: oklch(var(--b1));
-}
-
-.container input:hover + span {
-  background-color: oklch(var(--b1));
-  color: klch(var(--bc));
-  transition-duration: 500ms;
-}
-
 .large-font {
   font-size: 1.3em;
 }

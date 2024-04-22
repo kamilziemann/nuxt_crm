@@ -22,7 +22,7 @@ export default {
   computed: {
     $style() {
       return {
-        link: "btn flex w-[250px] h-[50px] items-center rounded-[8px] mt-[10px] bg-base-100",
+        link: "btn flex w-[250px] h-[50px] items-center rounded-[8px] mt-[10px] bg-base-100 justify-start",
         text: "ml-[14px]",
       };
     },

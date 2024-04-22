@@ -10,7 +10,6 @@ export default {
   ],
   theme: {
     extend: {},
-    //darkMode: 'class' >> this is mistake
   },
   plugins: [require("daisyui")],
 };

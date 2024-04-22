@@ -1,13 +1,16 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const colorMode = useColorMode();
 const toggleChecked = ref(false);
 
-// Function to toggle the select dropdown
-const toggleSelect = () => {
+const toggleColorMode = () => {
   colorMode.preference = toggleChecked.value ? "dark" : "light";
 };
+
+onMounted(() => {
+  toggleChecked.value = colorMode.preference === "dark";
+});
 </script>
 <style lang="postcss">
 body {
@@ -37,7 +40,7 @@ body {
       value="synthwave"
       class="toggle theme-controller"
       v-model="toggleChecked"
-      @change="toggleSelect"
+      @change="toggleColorMode"
     />
     <svg
       xmlns="http://www.w3.org/2000/svg"
