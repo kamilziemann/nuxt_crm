@@ -1,11 +1,11 @@
 <template>
   <svg
-    fill="#333"
+    fill="currentColor"
     width="30px"
     height="30px"
     viewBox="0 0 1920 1920"
     xmlns="http://www.w3.org/2000/svg"
-    stroke="#ffffff"
+    stroke="currentColor"
     class="ml-[5px] group-hover:fill-white"
   >
     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

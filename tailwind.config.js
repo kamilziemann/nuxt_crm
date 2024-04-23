@@ -9,11 +9,7 @@ export default {
     "./error.vue",
   ],
   theme: {
-    extend: {
-      colors: {
-        base: "green",
-      },
-    },
+    extend: {},
   },
   plugins: [require("daisyui")],
 };
