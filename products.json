@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Soccer Ball",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Durable soccer ball, suitable for playing on grass and artificial turf.",
+    "stock": 50,
+    "price": "$20",
+    "totalSales": 100
+  },
+  {
+    "name": "Wireless Headphones",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Wireless headphones with excellent sound and long battery life.",
+    "stock": 30,
+    "price": "$50",
+    "totalSales": 80
+  },
+  {
+    "name": "Digital Camera",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "High-quality digital camera for capturing stunning photos and videos.",
+    "stock": 25,
+    "price": "$200",
+    "totalSales": 60
+  },
+  {
+    "name": "Running Shoes",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Comfortable running shoes with advanced cushioning and support.",
+    "stock": 40,
+    "price": "$80",
+    "totalSales": 120
+  },
+  {
+    "name": "Smartphone",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Feature-rich smartphone with a sleek design and powerful performance.",
+    "stock": 20,
+    "price": "$600",
+    "totalSales": 150
+  },
+  {
+    "name": "Gaming Console",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Next-generation gaming console for immersive gaming experiences.",
+    "stock": 15,
+    "price": "$400",
+    "totalSales": 90
+  },
+  {
+    "name": "Laptop Computer",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Powerful laptop computer with a high-resolution display and fast processor.",
+    "stock": 20,
+    "price": "$1000",
+    "totalSales": 70
+  },
+  {
+    "name": "Wireless Speaker",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Portable wireless speaker with crisp sound and long-lasting battery.",
+    "stock": 35,
+    "price": "$70",
+    "totalSales": 110
+  },
+  {
+    "name": "Fitness Tracker",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Smart fitness tracker to monitor your activity, heart rate, and sleep quality.",
+    "stock": 45,
+    "price": "$50",
+    "totalSales": 80
+  },
+  {
+    "name": "Bluetooth Earbuds",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Comfortable Bluetooth earbuds with noise cancellation and sweat resistance.",
+    "stock": 30,
+    "price": "$100",
+    "totalSales": 70
+  },
+  {
+    "name": "Digital Watch",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Sleek digital watch with multiple features including alarm, stopwatch, and timer.",
+    "stock": 40,
+    "price": "$30",
+    "totalSales": 100
+  },
+  {
+    "name": "Portable Charger",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Compact portable charger with fast charging technology for your devices.",
+    "stock": 50,
+    "price": "$20",
+    "totalSales": 120
+  },
+  {
+    "name": "Wireless Mouse",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Ergonomic wireless mouse with precise tracking and long battery life.",
+    "stock": 25,
+    "price": "$25",
+    "totalSales": 60
+  },
+  {
+    "name": "Coffee Maker",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Automatic coffee maker for brewing delicious coffee at home or office.",
+    "stock": 20,
+    "price": "$50",
+    "totalSales": 80
+  },
+  {
+    "name": "External Hard Drive",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "High-capacity external hard drive for storing and backing up your data.",
+    "stock": 30,
+    "price": "$80",
+    "totalSales": 50
+  },
+  {
+    "name": "Water Bottle",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Reusable water bottle with a leak-proof design, perfect for staying hydrated on the go.",
+    "stock": 40,
+    "price": "$10",
+    "totalSales": 90
+  },
+  {
+    "name": "Wireless Keyboard",
+    "image": "https://cdn.pixabay.com/photo/2016/12/20/05/24/store-1919712_1280.png",
+    "description": "Slim wireless keyboard with quiet keys and comfortable typing experience.",
+    "stock": 35,
+    "price": "$30",
+    "totalSales": 70
+  }
+]
