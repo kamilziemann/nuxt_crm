@@ -1,0 +1,98 @@
+import handleApiQuery from "~/server/utils/handleApiQuery.ts";
+export default defineEventHandler((event) => {
+  const query = getQuery(event);
+  const data = [
+    {
+      id: 1,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName1",
+      description: "example product name1",
+      price: "123",
+      stock: 2,
+    },
+    {
+      id: 2,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName2",
+      description: "example product name2",
+      price: "123",
+      stock: 5,
+    },
+    {
+      id: 1,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName1",
+      description: "example product name1",
+      price: "123",
+      stock: 2,
+    },
+    {
+      id: 2,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName2",
+      description: "example product name2",
+      price: "123",
+      stock: 5,
+    },
+    {
+      id: 1,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName1",
+      description: "example product name1",
+      price: "123",
+      stock: 2,
+    },
+    {
+      id: 2,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName2",
+      description: "example product name2",
+      price: "123",
+      stock: 5,
+    },
+    {
+      id: 1,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName1",
+      description: "example product name1",
+      price: "123",
+      stock: 2,
+    },
+    {
+      id: 2,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName2",
+      description: "example product name2",
+      price: "123",
+      stock: 5,
+    },
+    {
+      id: 1,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName1",
+      description: "example product name1",
+      price: "123",
+      stock: 2,
+    },
+    {
+      id: 2,
+      imageUrl: "https://daisyui.com/tailwind-css-component-profile-2@56w.png",
+      imageAlt: "alt",
+      name: "productName2",
+      description: "example product name2",
+      price: "123",
+      stock: 5,
+    },
+  ];
+
+  return handleApiQuery(event, data, query);
+});

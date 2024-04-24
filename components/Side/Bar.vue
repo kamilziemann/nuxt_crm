@@ -36,16 +36,16 @@ export default {
     <div class="flex flex-col items-center">
       <h1 class="text-[26px] p-[20px]">Dashboard</h1>
       <div class="mt-[30px]">
-        <NuxtLink to="/home">
+        <NuxtLink to="/">
           <div :class="$style.link" class="group duration-500">
             <DashboardIcon />
             <p :class="$style.text">Dashboard</p>
           </div>
         </NuxtLink>
-        <NuxtLink to="/product">
+        <NuxtLink to="/products">
           <div :class="$style.link" class="group duration-500">
             <ProductIcon />
-            <p :class="$style.text">Product</p>
+            <p :class="$style.text">Produkty</p>
           </div>
         </NuxtLink>
         <NuxtLink to="/customers">
