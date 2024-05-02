@@ -7,6 +7,8 @@ import CustomersIcon from "../../assets/svg/CustomersIcon.vue";
 import IncomeIcon from "../../assets/svg/IncomeIcon.vue";
 import PromoteIcon from "../../assets/svg/PromoteIcon.vue";
 import HelpIcon from "../../assets/svg/HelpIcon.vue";
+import TruckIcon from "../assets/svg/TruckIcon.vue";
+
 
 export default {
   components: {
@@ -18,6 +20,8 @@ export default {
     PromoteIcon,
     HelpIcon,
     ToggleMode,
+    TruckIcon,
+    
   },
   computed: {
     $style() {
@@ -52,6 +56,12 @@ export default {
           <div :class="$style.link" class="group duration-500">
             <CustomersIcon />
             <p :class="$style.text">Customers</p>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/orders">
+          <div :class="$style.link" class="group duration-500">
+            <TruckIcon />
+            <p :class="$style.text">Orders</p>
           </div>
         </NuxtLink>
         <NuxtLink to="/income">
