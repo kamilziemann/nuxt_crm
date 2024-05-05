@@ -1,11 +1,26 @@
 <script setup>
 import { defineProps, reactive, watch, ref, onMounted } from "vue";
 const props = defineProps({
-	fields: Array, 
-	onSubmit: Function,
-	isOpen: Boolean,
-	onClose: Function,
-	title: String,
+  fields: {
+    type: Array,
+    default: () => [],
+  },
+  onSubmit: {
+    type: Function,
+    default: () => () => {},
+  },
+  isOpen: {
+    type: Boolean,
+    default: () => false,
+  },
+  onClose: {
+    type: Function,
+    default: () => () => {},
+  },
+  title: {
+    type: String,
+    default: () => "",
+  },
 });
 const dialog = ref(null);
 const formData = reactive({});

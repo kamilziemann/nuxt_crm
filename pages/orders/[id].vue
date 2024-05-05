@@ -1,7 +1,6 @@
 <script setup>
 import { ref, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
-import ProductList from '../components/ProductList/ProductList.vue';
 
 const orderDetails = ref(null);
 const products = ref([]);

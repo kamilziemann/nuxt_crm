@@ -2,11 +2,26 @@
 import { defineProps, onMounted } from "vue";
 import { useRouter } from "vue-router";
 const props = defineProps({
-	headers: Array,
-	rows: Array,
-	title: String,
-	buttonLabel: String,
-	onButtonClick: Function,
+  headers: {
+    type: Array,
+    default: () => [],
+  },
+  rows: {
+    type: Array,
+    default: () => [],
+  },
+  title: {
+    type: String,
+    default: () => "",
+  },
+  buttonLabel: {
+    type: String,
+    default: () => "",
+  },
+  onButtonClick: {
+    type: Function,
+    default: () => () => {},
+  },
 });
 const router = useRouter();
 const navigate = (id) => {
@@ -42,7 +57,7 @@ const navigate = (id) => {
 						v-for="(row, rowIndex) in rows"
 						:key="rowIndex"
 						@click="navigate(row[0])"
-						class="cursor-pointer hover:bg-gray-100 "
+						class="cursor-pointer hover:bg-base-300 "
 					>
 						<td
 							v-for="(cell, cellIndex) in row"

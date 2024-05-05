@@ -1,7 +1,4 @@
 <script setup>
-import { ref } from "vue";
-import Table from "../components/Table/Table.vue";
-import Modal from "../components/Modal/Modal.vue";
 const showModal = ref(false);
 
 const fields = [
@@ -30,7 +27,7 @@ const handleClose = () => {
             :headers="['ID', 'E-mail','Price', 'Quantity']"
             :rows="[
                 [1, 'CyGanderton@gmail.com', '30.00€', '2'],
-                [2, 'HartHagerty@gmail.com', '35.00€', '5'],
+                [2, 'HartHagerty@gmail.com', '35.00€', '1'],
                 [3, 'BriceSwyre@gmail.com', '26.90€', '3'],
             ]"
             title="Order details"
