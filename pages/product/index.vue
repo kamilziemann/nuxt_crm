@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
-import TableProducts from "../components/TableProducts/TableProducts.vue";
-import ModalProducts from "../components/ModalProducts/ModalProducts.vue";
+import Table from "../components/Table/Table.vue";
+import Modal from "../components/Modal/Modal.vue";
 
 const showModal = ref(false);
 const dataTable=ref([
@@ -11,11 +11,11 @@ const dataTable=ref([
 
 ])
 const fields = [
-	{ label: "Product Name", model: "name",type:'text' },
-	{ label: "Description", model: "description" ,type:'text'},
-	{ label: "Price", model: "price" ,type:'number'},
-	{ label: "Stock", model: "stock" ,type:'number'},
-	{ label: "Image Link", model: "image",type:'text' },
+	{ label: "Product Name", model: "name",},
+	{ label: "Description", model: "description",},
+	{ label: "Price", model: "price" ,},
+	{ label: "Stock", model: "stock" ,},
+	{ label: "Image Link", model: "image",},
 ];
 
 const submitModalForm = (formData) => {
@@ -37,14 +37,14 @@ const handleClose = () => {
 <template>
 	<div class='overflow-y-auto w-full'>
 		<div class="w-full max-w-[800px] mx-auto pt-10 max-h-screen  box-border" >
-			<TableProducts
+			<Table
 				:headers="['ID','Image', 'Product Name', 'Description', 'Stock','Price']"
 				:rows="dataTable"
 				title="Products"
 				buttonLabel="Add new product"
 				:onButtonClick="handleOpen"
 			/>
-			<ModalProducts
+			<Modal
 				:isOpen="showModal"
 				:fields="fields"
 				:onSubmit="submitModalForm"
