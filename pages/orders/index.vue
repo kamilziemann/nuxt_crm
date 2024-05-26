@@ -1,4 +1,5 @@
 <script setup>
+const supabase = useSupabaseClient();
 const showModal = ref(false);
 const tableData = ref([]);
 const loading = ref(false);
@@ -23,8 +24,16 @@ const handleClose = () => {
 const fetchData = async () => {
   loading.value = true;
 
-  //timespan to simulate waiting for api response
-  await new Promise((resolve) => setTimeout(resolve, 2500));
+  const response = await supabase.from("order_summary").select("*");
+  const transformedOrders = response.data.map((order) => {
+    return [
+      order.id,
+      order.email,
+      order.order_value + " €",
+      order.order_quantity,
+    ];
+  });
+  tableData.value = transformedOrders;
   loading.value = false;
 };
 

@@ -4,11 +4,7 @@ import ToggleMode from "./ToggleMode.vue";
 import DashboardIcon from "../../assets/svg/DashboardIcon.vue";
 import ProductIcon from "../../assets/svg/ProductIcon.vue";
 import CustomersIcon from "../../assets/svg/CustomersIcon.vue";
-import IncomeIcon from "../../assets/svg/IncomeIcon.vue";
-import PromoteIcon from "../../assets/svg/PromoteIcon.vue";
-import HelpIcon from "../../assets/svg/HelpIcon.vue";
 import TruckIcon from "../assets/svg/TruckIcon.vue";
-
 
 export default {
   components: {
@@ -16,12 +12,8 @@ export default {
     DashboardIcon,
     ProductIcon,
     CustomersIcon,
-    IncomeIcon,
-    PromoteIcon,
-    HelpIcon,
     ToggleMode,
     TruckIcon,
-    
   },
   computed: {
     $style() {
@@ -40,16 +32,16 @@ export default {
     <div class="flex flex-col items-center">
       <h1 class="text-[26px] p-[20px]">Dashboard</h1>
       <div class="mt-[30px]">
-        <NuxtLink to="/home">
+        <NuxtLink to="/">
           <div :class="$style.link" class="group duration-500">
             <DashboardIcon />
             <p :class="$style.text">Dashboard</p>
           </div>
         </NuxtLink>
-        <NuxtLink to="/product">
+        <NuxtLink to="/products">
           <div :class="$style.link" class="group duration-500">
             <ProductIcon />
-            <p :class="$style.text">Product</p>
+            <p :class="$style.text">Products</p>
           </div>
         </NuxtLink>
         <NuxtLink to="/customers">
@@ -62,24 +54,6 @@ export default {
           <div :class="$style.link" class="group duration-500">
             <TruckIcon />
             <p :class="$style.text">Orders</p>
-          </div>
-        </NuxtLink>
-        <NuxtLink to="/income">
-          <div :class="$style.link" class="group duration-500">
-            <IncomeIcon />
-            <p :class="$style.text">Income</p>
-          </div>
-        </NuxtLink>
-        <NuxtLink to="/promote">
-          <div :class="$style.link" class="group duration-500">
-            <PromoteIcon />
-            <p :class="$style.text">Promote</p>
-          </div>
-        </NuxtLink>
-        <NuxtLink to="/help">
-          <div :class="$style.link" class="group duration-500">
-            <HelpIcon />
-            <p :class="$style.text">Help</p>
           </div>
         </NuxtLink>
       </div>
