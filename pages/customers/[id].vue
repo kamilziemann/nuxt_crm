@@ -1,38 +1,19 @@
 <script setup>
-import { ref, watchEffect } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute } from "vue-router";
 
+const supabase = useSupabaseClient();
 const customerDetails = ref(null);
 const route = useRoute();
 
-const fetchDataForId = async (id) => {
-  const data = {
-    '1': { 
-      customerData: { id: '1', name: 'Deon Banquo', email: 'DeonBanquo@gmail.com', createdAt: '2023-05-12'},
-    },
-    '2': {
-      customerData: { id: '2', name: 'Iancu Ezequiel', email: 'EzequielDestroyer@gmail.com', createdAt: '2023-12-02'},
-    },
-    '3': {
-      customerData: { id: '3', name: 'Tryphosa Maria', email: 'TryphosaMaria@gmail.com', createdAt: '2024-02-20' },
-    }
-  };
-  return data[id] || null;
+const fetchData = async () => {
+  const customer = await supabase
+    .from("users")
+    .select()
+    .eq("id", route.params.id);
+  customerDetails.value = customer.data[0];
 };
 
-const refreshData = async () => {
-  const id = route.params.id;
-  const data = await fetchDataForId(id);
-  if (data) {
-    customerDetails.value = data.customerData;
-  } else {
-    console.error('No data found for ID:', id);
-  }
-};
-
-watchEffect(() => {
-  refreshData();
-});
+onMounted(() => fetchData());
 </script>
 
 <template>
@@ -42,7 +23,9 @@ watchEffect(() => {
         <h2 class="card-title">Customer ID: {{ customerDetails.id }}</h2>
         <p><strong>Name:</strong> {{ customerDetails.name }}</p>
         <p><strong>Email:</strong> {{ customerDetails.email }}</p>
-        <p><strong>Account Created At:</strong> {{ customerDetails.createdAt }}</p>
+        <p>
+          <strong>Account Created At:</strong> {{ customerDetails.created_at }}
+        </p>
       </div>
     </div>
   </div>
