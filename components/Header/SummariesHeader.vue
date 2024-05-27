@@ -10,9 +10,11 @@ const customers = ref(0);
 // Asynchronous function to fetch data from API and update state
 const fetchData = async () => {
   const response = await supabase.from("header_details").select("*");
-  products.value = response.data[0].products_number;
-  orders.value = response.data[0].orders_number;
-  customers.value = response.data[0].users_number;
+  const { products_number, orders_number, users_number } =
+    response.data[0] ?? {};
+  products.value = products_number;
+  orders.value = orders_number;
+  customers.value = users_number;
 };
 
 onMounted(() => {
